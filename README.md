@@ -6,17 +6,26 @@ This tool piggybacks off the library and strategy proposed by the multiClassPair
 #Citation 
 On bioRxiv soon. 
 
-#Installation (note: I found these libraries do not play well with Apple Silicon M3 chips, especially bioconda::switchBox. It is recommended to run this on a Linux system.) 
+#Installation (note: I found these libraries do not play well with the new Apple Silicon chips, especially bioconda::switchBox. It is recommended to run this on a Linux system.) 
 1. Install [miniconda](https://www.anaconda.com/docs/getting-started/miniconda/install) 
 2. Create an environment `conda create -n cellf`
 3. Activate the environment `conda activate cellf`
 4. Install the correct libraries.
-   conda install r-multiclasspairs 
-   conda install r-tidyverse
-   conda install bioconda::Biobase
-   conda install bioconda::switchBox
-   conda install bioconda::snakemake
-5. git this repo `git clone https://github.com/MHBailey/Cellf_deception.git`
+   
+   `conda install r-multiclasspairs`
+   
+   `conda install r-tidyverse`
+   
+   `conda install bioconda::Biobase`
+   
+   `conda install bioconda::switchBox`
+   
+   `conda install bioconda::snakemake`
+   
+5. git this repo
+  
+   `git clone https://github.com/MHBailey/Cellf_deception.git`
+
 
 #Running with SLURM
 
