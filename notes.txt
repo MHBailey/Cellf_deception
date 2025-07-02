@@ -1,0 +1,48 @@
+May 14, 2025
+snakemake --executor slurm -p all -j 3 --default-resources --slurm-no-account
+
+
+May 13, 2025
+pip install snakemake-executor-plugin-slurm
+snakemake --executor slurm -p all -j 3 --default-resources --slurm-no-account --workflow-profile
+
+
+May 12, 2025
+#Here are some instruction to get this working on SLURM, high performance compute cluster. 
+snakemake --executor slurm -np all -j 3 --default-resources
+snakemake --executor slurm -p all -j 3 --default-resources
+
+snakemake -p all --cluster="sbatch --time 3:00:00 --mem 128G --output slurm-%j.out -c 20" --jobs=20 --rerun-incomplete --latency-wait 1800
+
+
+#Update config file with the following: 
+
+default-resources:
+    mem_mb_per_cpu: 64000 # take a sensible default for your cluster
+    runtime: "60m"
+    slurm_extra: "'--mem=64000 --time=10:30:00'"
+
+# here only rules, which require different (more) resources:
+set-resources:
+    sr_count:
+        runtime: "'10:30:00'"
+        mem_mb_per_cpu: 64000
+        slurm_extra: "'--mem=32000 -out=Logs/Counting/slurm-%j.out-%N --error=Logs/.Counting/slurm-%j.err-%N --time=10:30:00 --mail-type=END mail-type=FAIL --mail-usr=matthew.bailey@byu.edu --ntasks=16 --nodes=1'"
+
+
+# parallelization with threads needs to be defined separately:
+set-threads:
+    sr_count: 16
+
+
+
+
+April 4, 2025
+
+#Order of package install 
+multiclassPairs
+tidyverse
+bioconda::Biobase
+bioconda::switchBox
+
+

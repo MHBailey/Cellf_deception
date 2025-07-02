@@ -1,0 +1,24 @@
+Clean: Code/data_cleaning.R
+Primary: Code/class_primary_cell.R 
+Cell: Code/class_cell_line.R
+Depmap: Code/class_depmap.R
+
+default-resources:
+    mem_mb_per_cpu: 64000 # take a sensible default for your cluster
+    runtime: "60m"
+    slurm_extra: "'--mem=64000 --time=02:30:00'"
+
+# here only rules, which require different (more) resources:
+set-resources:
+    agg_data:
+        runtime: "'10:30:00'"
+        mem_mb_per_cpu: "'64000M'"
+        slurm_extra: "'--mem=32000M -out=Logs/slurm-%j.out-%N --error=Logs/slurm-%j.err-%N --time=02:30:00 --mail-type=END mail-type=FAIL --mail-usr=matthew.bailey@byu.edu --ntasks=16 --nodes=1'"
+    primary_cell_classify:
+        runtime: "'10:30:00'"
+        mem_mb_per_cpu: "'64000M'"
+        slurm_extra: "'--mem=32000M -out=Logs/slurm-%j.out-%N --error=Logs/slurm-%j.err-%N --time=02:30:00 --mail-type=END mail-type=FAIL --mail-usr=matthew.bailey@byu.edu --ntasks=16 --nodes=1'"
+    cell_line_classify:
+        runtime: "'10:30:00'"
+        mem_mb_per_cpu: "'64000M'"
+        slurm_extra: "'--mem=32000M -out=Logs/slurm-%j.out-%N --error=Logs/slurm-%j.err-%N --time=02:30:00 --mail-type=END mail-type=FAIL --mail-usr=matthew.bailey@byu.edu --ntasks=16 --nodes=1'"

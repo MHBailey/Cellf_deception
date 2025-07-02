@@ -1,0 +1,7 @@
+.RData/
+.Rhistory/
+.snakemake
+Processed_data/
+Figures/
+Data/OmicsExpressionProteinCodingGenesTPMLogp1BatchCorrected.csv
+Data/OmicsExpressionProteinCodingGenesTPMLogp1.csv
